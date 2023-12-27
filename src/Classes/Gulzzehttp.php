@@ -5,6 +5,7 @@ namespace Packages\Gulzzehttp\Classes;
 use Cryptommer\Smsir\Smsir;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class Gulzzehttp
 {
@@ -16,11 +17,18 @@ class Gulzzehttp
 
     public function get(string $domain)
     {
-        $response = Http::get('https://rahatbet.com/api/gulzze-status/managment', [
-            'domain' => $domain,
+        $client = new Client();
+
+        $response = $client->get('https://rahatbet.com/api/gulzze-status/managment', [
+            'query' => [
+                'domain' => $domain,
+            ],
         ]);
-        if (!$response->json(['success']) == true) {
-            abort('403',$response->json(['message']));
+
+        $responseData = json_decode($response->getBody(), true);
+
+        if (!isset($responseData['success']) || $responseData['success'] !== true) {
+            abort(403, $responseData['message']);
         } else {
             return true;
         }
