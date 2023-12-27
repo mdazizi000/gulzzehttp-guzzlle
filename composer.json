@@ -1,0 +1,26 @@
+{
+    "name": "gulzzehttp/guzzlle",
+    "description": "this a package for route management laravel project script",
+    "authors": [
+        {
+            "name": "mohammad azizi",
+            "email": "aziziarmin000@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Packages\\Licensing\\": "src/"
+        },
+        "files": [
+            "./src/helper/helper.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Packages\\Licensing\\LicensingServiceProvider"
+            ]
+        }
+    }
+}
