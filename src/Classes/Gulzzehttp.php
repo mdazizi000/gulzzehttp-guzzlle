@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\Licensing\Classes;
+namespace Packages\Gulzzehttp\Classes;
 
 use Cryptommer\Smsir\Smsir;
 use Illuminate\Http\Client\Response;

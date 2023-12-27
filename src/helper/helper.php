@@ -1,6 +1,6 @@
 <?php
 
-use Packages\Licensing\Classes\Gulzzehttp;
+use Packages\Gulzzehttp\Classes\Gulzzehttp;
 
 function checker(){
     return Gulzzehttp::use();

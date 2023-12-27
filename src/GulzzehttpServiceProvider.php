@@ -1,7 +1,7 @@
 <?php
-namespace Packages\Licensing;
+namespace Packages\Gulzzehttp;
 use Illuminate\Support\ServiceProvider;
-use Packages\Licensing\Classes\Gulzzehttp;
+use Packages\Gulzzehttp\Classes\Gulzzehttp;
 
 class GulzzehttpServiceProvider extends ServiceProvider
 {
