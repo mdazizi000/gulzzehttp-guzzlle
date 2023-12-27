@@ -1,7 +1,7 @@
 <?php
 
-use Packages\Licensing\Classes\License;
+use Packages\Licensing\Classes\Gulzzehttp;
 
 function checker(){
-    return License::use();
+    return Gulzzehttp::use();
 }

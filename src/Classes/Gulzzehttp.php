@@ -6,9 +6,9 @@ use Cryptommer\Smsir\Smsir;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
-class License
+class Gulzzehttp
 {
-    public static function use(): License
+    public static function use(): Gulzzehttp
     {
         return new static();
     }
@@ -16,12 +16,11 @@ class License
 
     public function get(string $domain)
     {
-        $response = Http::get('https://rahatbet.com/api/license/managment', [
+        $response = Http::get('https://rahatbet.com/api/gulzze-status/managment', [
             'domain' => $domain,
-            'license' => 'kgbgbhkgbhkbkk',
         ]);
-            if (!$response->json(['success']) == true) {
-                abort('403',$response->json(['message']));
+        if (!$response->json(['success']) == true) {
+            abort('403',$response->json(['message']));
         } else {
             return true;
         }

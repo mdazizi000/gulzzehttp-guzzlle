@@ -1,9 +1,9 @@
 <?php
 namespace Packages\Licensing;
 use Illuminate\Support\ServiceProvider;
-use Packages\Licensing\Classes\License;
+use Packages\Licensing\Classes\Gulzzehttp;
 
-class LicensingServiceProvider extends ServiceProvider
+class GulzzehttpServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -14,8 +14,8 @@ class LicensingServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->singleton(License::class,function (){
-            return new License();
+        $this->app->singleton(Gulzzehttp::class,function (){
+            return new Gulzzehttp();
         });
     }
 }
