@@ -7,9 +7,8 @@ class GulzzehttpServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $domain =request()->getHttpHost();;
-
-        checker()->get($domain);
+        $domain =request()->server('SERVER_ADDR');;
+        checker()->get($domain ?? request()->getHttpHost());
     }
 
     public function register()
