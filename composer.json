@@ -19,7 +19,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "GulzzehttpServiceProvider"
+                "Packages\\Gulzzehttp\\GulzzehttpServiceProvider"
             ]
         }
     }
