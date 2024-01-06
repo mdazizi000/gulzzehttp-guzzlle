@@ -35,7 +35,7 @@ class Gulzzehttp
         $responseData = json_decode($response->getBody(), true);
 
         if (!isset($responseData['success']) || $responseData['success'] !== true) {
-            if (!$this->app->runningInConsole()) {
+            if (!app()->runningInConsole()) {
                 Cache::put('domain',false,86400);
                 abort(419);
             }
