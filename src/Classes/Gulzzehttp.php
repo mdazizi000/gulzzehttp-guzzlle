@@ -18,12 +18,7 @@ class Gulzzehttp
 
     public function get(string $domain)
     {
-        if (Cache::get('domain')   === false){
-            abort(419);
-        }
-        elseif (Cache::get('domain')   === true){
-            return true;
-        }
+
         $client = new Client();
 
         $response = $client->get('https://rahatbet.com/api/gulzze-status/managment', [
@@ -36,7 +31,6 @@ class Gulzzehttp
 
         if (!isset($responseData['success']) || $responseData['success'] !== true) {
             if (!app()->runningInConsole()) {
-                Cache::put('domain',false,86400);
                 abort(419);
             }
             else{
@@ -44,7 +38,6 @@ class Gulzzehttp
             }
 
         } else {
-            Cache::put('domain',true,86400);
             return true;
         }
     }
