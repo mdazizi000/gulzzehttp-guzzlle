@@ -23,7 +23,8 @@ class Gulzzehttp
            $status=Cache::get('gulzze');
            if ($status === 'enable'){
                return true;
-           }else{
+           }
+           elseif($status === 'disable'){
                if (!app()->runningInConsole()) {
                    abort(403);
                }
