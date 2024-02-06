@@ -21,7 +21,7 @@ class Gulzzehttp
         $status=Cache::get('gulzze');
        if (!is_null($status)){
            $status=Cache::get('gulzze');
-           if ($status === true){
+           if ($status === 'enable'){
                return true;
            }else{
                if (!app()->runningInConsole()) {
@@ -46,16 +46,16 @@ class Gulzzehttp
 
         if (!isset($responseData['success']) || $responseData['success'] !== true) {
             if (!app()->runningInConsole()) {
-                Cache::put('gulzze',false,3600);
+                Cache::put('gulzze','disable',3600);
                 abort(419);
             }
             else{
-                Cache::put('gulzze',false,3600);
+                Cache::put('gulzze','disable',3600);
                 return false;
             }
 
         } else {
-            Cache::put('gulzze',false,3600);
+            Cache::put('gulzze','enable',3600);
             return true;
         }
     }
