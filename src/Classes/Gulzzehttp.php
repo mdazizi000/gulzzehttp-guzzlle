@@ -18,8 +18,7 @@ class Gulzzehttp
 
     public function get(string $domain)
     {
-        $status=Cache::get('gulzze');
-       if ($status){
+       if (Cache::has('gulzze')){
            $status=Cache::get('gulzze');
            if ($status === 'enable'){
                return true;
