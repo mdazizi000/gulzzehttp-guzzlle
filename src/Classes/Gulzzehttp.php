@@ -18,13 +18,14 @@ class Gulzzehttp
 
     public function get(string $domain)
     {
-       if (Cache::has('gulzze')){
+        $status=Cache::get('gulzze');
+       if (!is_null($status)){
            $status=Cache::get('gulzze');
            if ($status === true){
                return true;
            }else{
                if (!app()->runningInConsole()) {
-                   abort(500);
+                   abort(403);
                }
                else{
                    return false;
@@ -41,7 +42,6 @@ class Gulzzehttp
                 'domain' => $domain,
             ],
         ]);
-        dd('heare');
         $responseData = json_decode($response->getBody(), true);
 
         if (!isset($responseData['success']) || $responseData['success'] !== true) {
