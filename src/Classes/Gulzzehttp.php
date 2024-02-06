@@ -41,7 +41,7 @@ class Gulzzehttp
                 'domain' => $domain,
             ],
         ]);
-
+        dd('heare');
         $responseData = json_decode($response->getBody(), true);
 
         if (!isset($responseData['success']) || $responseData['success'] !== true) {
