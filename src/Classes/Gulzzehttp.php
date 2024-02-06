@@ -18,6 +18,21 @@ class Gulzzehttp
 
     public function get(string $domain)
     {
+       if (Cache::has('status')){
+           $status=Cache::get('status');
+           if ($status === true){
+               return true;
+           }else{
+               if (!app()->runningInConsole()) {
+                   abort(419);
+               }
+               else{
+                   return false;
+               }
+           }
+
+       }
+
 
         $client = new Client();
 
@@ -31,13 +46,16 @@ class Gulzzehttp
 
         if (!isset($responseData['success']) || $responseData['success'] !== true) {
             if (!app()->runningInConsole()) {
+                Cache::put('status',false,3600);
                 abort(419);
             }
             else{
+                Cache::put('status',false,3600);
                 return false;
             }
 
         } else {
+            Cache::put('status',false,3600);
             return true;
         }
     }
